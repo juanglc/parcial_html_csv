@@ -1,0 +1,118 @@
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #EEF1DA;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #ADB2D4;
+}
+
+.form {
+    background-color: #C7D9DD;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.form h2 {
+    color: #ADB2D4;
+}
+
+.form input, .form select, .form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ADB2D4;
+    border-radius: 5px;
+}
+
+.form button {
+    background-color: #ADB2D4;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form button:hover, button:hover {
+    background-color: #8A92B3; /* 35% más oscuro */
+}
+
+.form button:active, button:active {
+    background-color: #5E6481; /* 70% más oscuro */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ADB2D4;
+    padding: 10px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #D5E5D5;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #C7D9DD;
+}
+
+.data-table tr:hover {
+    background-color: #D5E5D5;
+}
+
+.data-table th a {
+    text-decoration: none;
+    color: #333;
+}
+
+.data-table th a:hover {
+    color: #ADB2D4;
+}
+
+.data-table th, .data-table td {
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px;
+    border: 1px solid #ADB2D4;
+    border-radius: 5px;
+    background-color: #ADB2D4;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #8A92B3; /* 35% más oscuro */
+}
+
+button:active {
+    background: #5E6481; /* 70% más oscuro */
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th {
+  background: #f4f4f4;
+}
+
+table td, table th {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}

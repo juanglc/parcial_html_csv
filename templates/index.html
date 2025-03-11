@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parcial - Juan Guillermo López Cortés</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/js/set_placeholder.js"></script>
+    <script src="/static/js/fetch_pagination.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="dm-sans">Parcial - Juan Guillermo López Cortés</h1>
+        <div class="form-container">
+            <form action="/add" method="post" class="form dm-sans">
+                <h2>Add Record</h2>
+                <input type="text" name="fecha" placeholder="Fecha (DD/MM/YYYY)" pattern="\d{2}/\d{2}/\d{4}" title="Formato: DD/MM/YYYY" required>
+                <input type="number" name="cod_depto" placeholder="Cod Depto" min="1" required>
+                <input type="text" name="depto" placeholder="Departamento" pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+" title="Solo letras y espacios" required>
+                <input type="number" name="cod_muni" placeholder="Cod Muni" min="1" required>
+                <input type="text" name="muni" placeholder="Municipio" pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+" title="Solo letras y espacios" required>
+                <input type="number" name="cant" placeholder="Cantidad" min="0.00000001" step="any" required>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <div class="form-container">
+            <form action="/delete" method="post" class="form dm-sans">
+                <h2>Delete Record</h2>
+                <input type="number" id="delete-id" name="id" placeholder="ID" required data-length="{{ data_length }}">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        <div class="form-container">
+            <form action="/search" method="post" class="form dm-sans">
+                <h2>Search Records</h2>
+                <select name="criterion">
+                    <option value="date">Date</option>
+                    <option value="dept">Department</option>
+                    <option value="muni">Municipality</option>
+                    <option value="cant">Quantity</option>
+                </select>
+                <input type="text" name="value" placeholder="Search Value" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="form-container">
+            <form action="/show_all" method="post" class="form dm-sans">
+                <button type="submit">Reset Tabla</button>
+            </form>
+        </div>
+        <div class="table-container">
+            <table id="data-table" class="data-table dm-sans">
+                <thead>
+                    <tr>
+                        <th>
+                            Fecha
+                            <form action="/sort" method="get">
+                                <input type="hidden" name="column" value="fecha">
+                                <button type="submit" name="order" value="asc">&#9650;</button>
+                                <button type="submit" name="order" value="desc">&#9660;</button>
+                            </form>
+                        </th>
+                        <th>Cod Depto</th>
+                        <th>
+                            Departamento
+                            <form action="/sort" method="get">
+                                <input type="hidden" name="column" value="depto">
+                                <button type="submit" name="order" value="asc">&#9650;</button>
+                                <button type="submit" name="order" value="desc">&#9660;</button>
+                            </form>
+                        </th>
+                        <th>Cod Muni</th>
+                        <th>
+                            Municipio
+                            <form action="/sort" method="get">
+                                <input type="hidden" name="column" value="muni">
+                                <button type="submit" name="order" value="asc">&#9650;</button>
+                                <button type="submit" name="order" value="desc">&#9660;</button>
+                            </form>
+                        </th>
+                        <th>
+                            Cantidad
+                            <form action="/sort" method="get">
+                                <input type="hidden" name="column" value="cant">
+                                <button type="submit" name="order" value="asc">&#9650;</button>
+                                <button type="submit" name="order" value="desc">&#9660;</button>
+                            </form>
+                        </th>
+                        <th>Unidad</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="pagination-controls dm-sans">
+            <button id="prevPage" disabled>Previous</button>
+            <span id="pageNumber">1</span>
+            <button id="nextPage">Next</button>
+        </div>
+    </div>
+</body>
+</html>
